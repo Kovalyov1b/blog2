@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/zhopa', function () {
-    return view('welcome');
+Route::get('/users/create', function () {
+    return view('users.create');
 });
+Route::get('/users/create', [UserController::class, 'create'])->name('users_create');
+Route::post('/users/store', [UserController::class, 'store']);
